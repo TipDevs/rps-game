@@ -63,25 +63,25 @@ function getComputerChoice() {
             computerScore++;
         }
         else {
-            alert(`That's a tied.`)
+            alert(`That's a tied.`);
             draw++;
         }
         alert(`Round ${rounds} result:
-            Your score ${humanScore} : Computer score ${computerScore} : Draw score ${draw}`)
+            Your score ${humanScore} : Computer score ${computerScore} : Draw score ${draw}`);
     }
 
 function playGame() {
     for (rounds = 1; rounds <= 5; rounds++) {
         playRound();
     }
-    if (humanScore > computerScore && humanScore > draw) {
+    if (humanScore > computerScore && humanScore >= draw) {
         alert(`You are the winner`);
     }
-    else if (computerScore > humanScore && computerScore > draw) {
+    else if (computerScore > humanScore && computerScore >= draw) {
         alert (`Computer is the winner`);
     }
-    else {
-        alert(`No one wins. The game result is draw.`)
+    else if (computerScore === humanScore) {
+        alert(`no one wins`);
     }
 }
 playGame();
