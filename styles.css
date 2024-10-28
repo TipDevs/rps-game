@@ -2,7 +2,6 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Open Sans", sans-serif;
-    font-size: 1.2rem;
 }
 
 body {
@@ -31,6 +30,7 @@ body {
     width: 100%;
     flex: 2;
     background-color: #deb887b0;
+    padding: 20px;
 }
 ul{
     display: flex;
