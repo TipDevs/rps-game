@@ -72,6 +72,7 @@ function getComputerChoice() {
         else if (humanChoice === `paper` && computerChoice === `paper`) {
             alert(`That's a tied.`);
         }
+        alert(`Your score ${humanScore} : Computer score ${computerScore}`)
     }
 
 function playGame() {
