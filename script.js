@@ -62,18 +62,6 @@ function getComputerChoice() {
             alert(`Computer win`);
             computerScore++;
         }
-
-        // else if (humanChoice === `rock` && computerChoice === `rock`) {
-        //     alert(`That's a tied.`);
-        // }
-
-        // else if (humanChoice === `scissors` && computerChoice === `scissors`) {
-        //     alert(`That's a tied.`);
-        // }
-
-        // else if (humanChoice === `paper` && computerChoice === `paper`) {
-        //     alert(`That's a tied.`);
-        // }
         else {
             alert(`That's a tied.`)
             draw++;
@@ -85,6 +73,15 @@ function getComputerChoice() {
 function playGame() {
     for (rounds = 1; rounds <= 5; rounds++) {
         playRound();
+    }
+    if (humanScore > computerScore && humanScore > draw) {
+        alert(`You are the winner`);
+    }
+    else if (computerScore > humanScore && computerScore > draw) {
+        alert (`Computer is the winner`);
+    }
+    else {
+        alert(`No one wins. The game result is draw.`)
     }
 }
 playGame();
