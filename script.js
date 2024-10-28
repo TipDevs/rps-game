@@ -74,10 +74,10 @@ function playGame() {
     for (rounds = 1; rounds <= 5; rounds++) {
         playRound();
     }
-    if (humanScore > computerScore && humanScore >= draw) {
+    if (humanScore > computerScore && (humanScore >= draw || draw >= humanScore)) {
         alert(`You are the winner`);
     }
-    else if (computerScore > humanScore && computerScore >= draw) {
+    else if (computerScore > humanScore && (computerScore >= draw || draw >= computerScore)) {
         alert (`Computer is the winner`);
     }
     else if (computerScore === humanScore) {
