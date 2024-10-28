@@ -1,5 +1,7 @@
 let humanScore = 0,
-computerScore = 0;
+computerScore = 0,
+draw = 0,
+rounds;
 
 // code to get computer choice against human choice.
 function getComputerChoice() {
@@ -61,22 +63,27 @@ function getComputerChoice() {
             computerScore++;
         }
 
-        else if (humanChoice === `rock` && computerChoice === `rock`) {
-            alert(`That's a tied.`);
-        }
+        // else if (humanChoice === `rock` && computerChoice === `rock`) {
+        //     alert(`That's a tied.`);
+        // }
 
-        else if (humanChoice === `scissors` && computerChoice === `scissors`) {
-            alert(`That's a tied.`);
-        }
+        // else if (humanChoice === `scissors` && computerChoice === `scissors`) {
+        //     alert(`That's a tied.`);
+        // }
 
-        else if (humanChoice === `paper` && computerChoice === `paper`) {
-            alert(`That's a tied.`);
+        // else if (humanChoice === `paper` && computerChoice === `paper`) {
+        //     alert(`That's a tied.`);
+        // }
+        else {
+            alert(`That's a tied.`)
+            draw++;
         }
-        alert(`Your score ${humanScore} : Computer score ${computerScore}`)
+        alert(`Round ${rounds} result:
+            Your score ${humanScore} : Computer score ${computerScore} : Draw score ${draw}`)
     }
 
 function playGame() {
-    for (let i = 1; i <= 5; i++) {
+    for (rounds = 1; rounds <= 5; rounds++) {
         playRound();
     }
 }
