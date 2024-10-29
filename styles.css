@@ -15,12 +15,13 @@ body {
 
 .top-container{
     display: flex;
-    gap: 10px;
+    gap: px;
     flex-direction: column;
     align-items: center;
-    background-color: #cea3acd1;
+    background-color: #031933d1;
+    color: #deb887b0;
     width: 100%;
-    padding: 20px 50px 20px;
+    padding: 5px 0;
 }
 .middle-container{
     display: flex;
@@ -30,7 +31,8 @@ body {
     justify-content: center;
     width: 100%;
     flex: 2;
-    background-color: #deb887b0;
+    background-color: #877052b0;
+    color: #001f45;
     padding: 20px;
 }
 ul{
@@ -40,7 +42,8 @@ ul{
 
 }
 footer {
-    background-color: #cea3acd1;
+    background-color: #031933d1;
+    color: #deb887b0;
     width: 100%;
     text-align: center;
     padding: 20px 50px 20px;
