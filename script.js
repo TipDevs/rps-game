@@ -20,7 +20,9 @@ function getComputerChoice() {
 
 // code to get human or player choice against the computer.
   function getHumanChoice() {
-    let humanChoice = prompt(`Enter one of the following to play against the computer suggestion. 
+    let humanChoice = prompt(`Round ${rounds}
+        Enter one of the following to
+        play against the computer suggestion. 
         1. Rock
         2. Paper
         3. Scissors`);
@@ -33,41 +35,51 @@ function getComputerChoice() {
         humanChoice = getHumanChoice();
         computerChoice = getComputerChoice();
         if (humanChoice === `rock` && computerChoice === `scissors`) {
-            alert(`You won`);
+            alert(`Round ${rounds}:
+                You won`);
             humanScore++;
         }
 
         else if (humanChoice === `scissors` && computerChoice === `rock`) {
-            alert(`Computer wins`);
+            alert(`Round ${rounds}:
+                Computer wins`);
             computerScore++;
         }
         
 
         else if (humanChoice === `scissors` && computerChoice === `paper`) {
-            alert(`You won`);
+            alert(`Round ${rounds}:
+                You won`);
             humanScore++;
         }
 
         else if (humanChoice === `paper` && computerChoice === `scissors`) {
-            alert(`Computer wins`);
+            alert(`Round ${rounds}:
+                Computer wins`);
             computerScore++;
         }
 
         else if (humanChoice === `paper` && computerChoice === `rock`) {
-            alert(`You won`);
+            alert(`Round ${rounds}:
+                You won`);
             humanScore++;
         }
 
         else if (humanChoice === `rock` && computerChoice === `paper`) {
-            alert(`Computer win`);
+            alert(`Round ${rounds}:
+                Computer win`);
             computerScore++;
         }
         else {
-            alert(`That's a tied.`);
+            alert(`Round ${rounds}:
+                That's a tied.`);
             draw++;
         }
         alert(`Round ${rounds} result:
-            Your score ${humanScore} : Computer score ${computerScore} : Draw score ${draw}`);
+            Your score: ${humanScore}
+            Computer score: ${computerScore}
+            Draw score: ${draw}
+            Round left: ${5-rounds}`);
     }
 
 function playGame() {
