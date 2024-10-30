@@ -31,41 +31,41 @@ function getComputerChoice() {
   }
 
   
-    function playRound(humanChoice, computerChoice) {
-        humanChoice = getHumanChoice();
+    function playRound(computerChoice, humanChoice) {
         computerChoice = getComputerChoice();
-        if (humanChoice === `rock` || humanChoice == 1 && computerChoice === `scissors`) {
+        humanChoice = getHumanChoice(); 
+        if (humanChoice === `rock` && computerChoice === `scissors`) {
             alert(`Round ${rounds}:
                 You won`);
             humanScore++;
         }
 
-        else if (humanChoice === `scissors` || humanChoice == 3 && computerChoice === `rock`) {
+        else if (humanChoice === `scissors` && computerChoice === `rock`) {
             alert(`Round ${rounds}:
                 Computer wins`);
             computerScore++;
         }
         
 
-        else if (humanChoice === `scissors` || humanChoice == 3 && computerChoice === `paper`) {
+        else if (humanChoice === `scissors` && computerChoice === `paper`) {
             alert(`Round ${rounds}:
                 You won`);
             humanScore++;
         }
 
-        else if (humanChoice === `paper` || humanChoice == 2 && computerChoice === `scissors`) {
+        else if (humanChoice === `paper` && computerChoice === `scissors`) {
             alert(`Round ${rounds}:
                 Computer wins`);
             computerScore++;
         }
 
-        else if (humanChoice === `paper` || humanChoice == 2 && computerChoice === `rock`) {
+        else if (humanChoice === `paper` && computerChoice === `rock`) {
             alert(`Round ${rounds}:
                 You won`);
             humanScore++;
         }
 
-        else if (humanChoice === `rock` || humanChoice == 1 && computerChoice === `paper`) {
+        else if (humanChoice === `rock` && computerChoice === `paper`) {
             alert(`Round ${rounds}:
                 Computer win`);
             computerScore++;
@@ -75,11 +75,12 @@ function getComputerChoice() {
                 That's a tied.`);
             draw++;
         }
+        // Display round result, round score and also rounds left
         alert(`Round ${rounds} result:
             Your score: ${humanScore}
             Computer score: ${computerScore}
             Draw score: ${draw}
-            Round left: ${5-rounds}`);
+            Rounds left: ${5-rounds}`);
     }
 
 function playGame() {
