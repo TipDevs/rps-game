@@ -15,13 +15,20 @@ body {
 
 .top-container{
     display: flex;
-    gap: px;
+    gap: 10px;
     flex-direction: column;
     align-items: center;
-    background-color: #031933d1;
+    background-color: #031814f0;
     color: #deb887b0;
     width: 100%;
     padding: 5px 0;
+}
+
+@media (max-width: 400px) {
+    .top-container > h1, 
+    .top-container > h2 {
+        font-size: 1.5rem;
+    }
 }
 .middle-container{
     display: flex;
@@ -31,18 +38,60 @@ body {
     justify-content: center;
     width: 100%;
     flex: 2;
-    background-color: #877052b0;
+    background-color: #031814e4;
     color: #001f45;
     padding: 20px;
 }
-ul{
+.game-console{
+    padding: 10px;
+    width: 400px;
+    height: 50%;
+    border:10px solid #deb88780;
+    background-color: #031814d2;
+    color: #deb887b0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    @media (max-width: 400px) {
+        width: 300px;
+        height: 350px;
+    }
+}
+.score-container{
     display: flex;
     justify-content: space-between;
-    gap: 50px;
+}
 
+#start-game {
+    padding: 10px;
+    border-radius: 50%;
+    border: none;
+    background-color: #deb887b0;
+    color: #031814d2;
+    font-weight: bold;
+    align-self: center;
+}
+.choice-btn {
+    padding: 10px;
+    width: max-content;
+    border-radius: 10px;
+    border: none;
+    background-color: #deb887b0;
+    color: #031814d2;
+    /* align-self: center;  */
+}
+.choice-btn:hover, #start-game:hover {
+background-color: #031814e4;
+color: #deb887b0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
 }
 footer {
-    background-color: #031933d1;
+    background-color: #031814f0;
     color: #deb887b0;
     width: 100%;
     text-align: center;
