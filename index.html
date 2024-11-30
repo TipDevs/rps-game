@@ -15,6 +15,7 @@
     <script src="https://kit.fontawesome.com/40c93fcbb9.js" crossorigin="anonymous"></script>
 
     <title>Rock Paper Scissors</title>
+    <script src="script.js" defer></script>
   </head>
 <body>
   <div class="top-container">
@@ -22,19 +23,14 @@
     <h2>Game by Habeeb Abdullahi</h2>
   </div>
   <div class="middle-container">
-    <p>First Javascript project from The Odin Project</p>
-    <p>This is a gaming project whereby you guess against <br>
-       the computer by choosing one of the following choices</p>
-    <ul>
-      <li>Rock</li>
-      <li>Paper</li>
-      <li>Scissors</li>
-    </ul>
-    <em>Click on the icon below to play<br/> 5 rounds against the computer</em>
-    <a href="index.html"><img src="rps-js.png" alt="the odin project logo"></a>
+    <div class="game-console">
+      <div class="score-container">
+        <p>Player: <span>0</span></p>
+        <p>TOPbot: <span>0</span></p>
+      </div>
+      <button id="start-game">Start Game</button>
+    </div>
   </div>
   <footer>©Habeeb All right reserved | 2024</footer>
-  <script src="script.js">
-  </script>
 </body>
 </html>
