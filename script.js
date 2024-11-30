@@ -1,7 +1,38 @@
 let humanScore = 0,
-computerScore = 0,
-draw = 0,
+TOPbotScore = 0,
 rounds;
+
+const gameConsole = document.querySelector(".game-console"),
+ roundWinner = document.querySelector("#winner"),
+ startGameBtn = document.querySelector("#start-game"),
+ btnContainer = document.createElement('div'),
+ paperBtn = document.createElement("button"),
+ rockBtn = document.createElement("button"),
+ scissorsBtn = document.createElement("button")
+ botScore = document.querySelector("#TOPbot-score")
+ playerScore = document.querySelector("#human-score");
+
+// rockBtn.classList.add("rock");
+// paperBtn.classList.add("paper");
+// scissorsBtn.classList.add("scissors");
+
+function displayChoiceBtn() {
+    rockBtn.classList.add('choice-btn');
+    rockBtn.textContent = "rock";
+    paperBtn.classList.add('choice-btn');
+    paperBtn.textContent = "paper";
+    scissorsBtn.classList.add("choice-btn");
+    scissorsBtn.textContent = "scissors";
+    btnContainer.classList.add("button-container");
+
+    startGameBtn.setAttribute('style', "display: none;");
+    gameConsole.appendChild(btnContainer);
+    btnContainer.appendChild(rockBtn);
+    btnContainer.appendChild(paperBtn);
+    btnContainer.appendChild(scissorsBtn);
+}
+
+startGameBtn.onclick = displayChoiceBtn;
 
 // code to get computer choice against human choice.
 function getComputerChoice() {
@@ -19,89 +50,55 @@ function getComputerChoice() {
   
 
 // code to get human or player choice against the computer.
-  function getHumanChoice() {
-    let humanChoice = prompt(`Round ${rounds}
-        Enter one of the following to
-        play against the computer suggestion. 
-        1. Rock
-        2. Paper
-        3. Scissors`);
-    humanChoice = humanChoice.toLowerCase();
-    return humanChoice;
-  }
 
-  
     function playRound(computerChoice, humanChoice) {
-        computerChoice = getComputerChoice();
-        humanChoice = getHumanChoice(); 
-        if (humanChoice === `rock` && computerChoice === `scissors`) {
-            alert(`Round ${rounds}:
-                You won`);
-            humanScore++;
+
+        for (rounds = 1; rounds <= 5; rounds++){
+        if (humanChoice === rockBtn && computerChoice === 'scissors' ||
+            humanChoice === paperBtn && computerChoice === 'rock' ||
+            humanChoice === scissorsBtn && computerChoice === "paper"
+        ) {
+            playerScore.textContent = humanScore++;
+            return "You win";
         }
 
-        else if (humanChoice === `scissors` && computerChoice === `rock`) {
-            alert(`Round ${rounds}:
-                Computer wins`);
-            computerScore++;
+        else if (humanChoice === scissorsBtn && computerChoice === `rock` ||
+             humanChoice === paperBtn && computerChoice === `scissors` ||
+             humanChoice === rockBtn && computerChoice === `paper`)
+          {
+            botScore.textContent = TOPbotScore++;
+            return 'TOPbot wins';
         }
         
-
-        else if (humanChoice === `scissors` && computerChoice === `paper`) {
-            alert(`Round ${rounds}:
-                You won`);
-            humanScore++;
-        }
-
-        else if (humanChoice === `paper` && computerChoice === `scissors`) {
-            alert(`Round ${rounds}:
-                Computer wins`);
-            computerScore++;
-        }
-
-        else if (humanChoice === `paper` && computerChoice === `rock`) {
-            alert(`Round ${rounds}:
-                You won`);
-            humanScore++;
-        }
-
-        else if (humanChoice === `rock` && computerChoice === `paper`) {
-            alert(`Round ${rounds}:
-                Computer win`);
-            computerScore++;
-        }
         else {
-            alert(`Round ${rounds}:
-                That's a tied.`);
-            draw++;
+            return "It's a tie";
         }
-        // Display round result, round score and also rounds left
-        alert(`Round ${rounds} result:
-            Your score: ${humanScore}
-            Computer score: ${computerScore}
-            Draw score: ${draw}
-            Rounds left: ${5-rounds}`);
+    }
+    
     }
 
-function playGame() {
-    for (rounds = 1; rounds <= 5; rounds++) {
-        playRound();
-    }
-    if (humanScore > computerScore && (humanScore >= draw || draw >= humanScore)) {
-        alert(`What a brilliant work you've done😎😎😎
-            You are the winner 🙌🙌🙌`);
-    }
-    else if (computerScore > humanScore && (computerScore >= draw || draw >= computerScore)) {
-        alert (`So sad to say this 😥😥😥
-            Computer is the winner 🙇‍♂️🙇‍♂️🙇‍♂️
-            Try playing another round by clicking
-            on the icon on the page.`);
-    }
-    else if (computerScore === humanScore) {
-        alert(`You are amazing but you can do better✌.
-            No one wins😉😉
-            Try playing another round by clicking
-            on the icon on the page.`);
-    }
-}
-playGame();
+    rockBtn.onclick = () => playRound(getComputerChoice(), rockBtn);
+    paperBtn.onclick = () => playRound(getComputerChoice(), paperBtn);
+    scissorsBtn.onclick = () => playRound(getComputerChoice(), scissorsBtn);
+
+// function playGame() {
+//     for (rounds = 1; rounds <= 5; rounds++) {
+//         if (humanScore > TOPbotScore && (humanScore >= draw || draw >= humanScore)) {
+//             alert(`What a brilliant work you've done😎😎😎
+//                 You are the winner 🙌🙌🙌`);
+//         }
+//         else if (TOPbotScore > humanScore && (TOPbotScore >= draw || draw >= TOPbotScore)) {
+//             alert (`So sad to say this 😥😥😥
+//                 Computer is the winner 🙇‍♂️🙇‍♂️🙇‍♂️
+//                 Try playing another round by clicking
+//                 on the icon on the page.`);
+//         }
+//         else if (TOPbotScore === humanScore) {
+//             alert(`You are amazing but you can do better✌.
+//                 No one wins😉😉
+//                 Try playing another round by clicking
+//                 on the icon on the page.`);
+//         }
+//     }
+// }
+// playGame();
