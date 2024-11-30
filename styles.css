@@ -84,6 +84,8 @@ body {
 .choice-btn:hover, #start-game:hover {
 background-color: #031814e4;
 color: #deb887b0;
+font-weight: bold;
+font-size: 1rem;
 }
 
 .button-container {
