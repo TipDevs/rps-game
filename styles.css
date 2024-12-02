@@ -50,6 +50,7 @@ body {
     height: 50%;
     border:10px solid #deb88780;
     background-color: #031814d2;
+    box-shadow: 10px 10px 5px #03181473;
     color: #deb887b0;
     display: flex;
     flex-direction: column;
