@@ -11,6 +11,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #031814dd;
 }
 
 .top-container{
@@ -22,6 +23,9 @@ body {
     color: #deb887b0;
     width: 100%;
     padding: 5px 0;
+    @media (max-width: 400px) {
+    border-radius: 0 0 30px 30px;
+    }
 }
 
 @media (max-width: 400px) {
@@ -38,8 +42,6 @@ body {
     justify-content: center;
     width: 100%;
     flex: 2;
-    background-color: #031814e4;
-    color: #001f45;
     padding: 20px;
 }
 .game-console{
@@ -58,12 +60,15 @@ body {
         height: 350px;
     }
 }
+.game-console>p {
+    align-self: center;
+}
 .score-container{
     display: flex;
     justify-content: space-between;
 }
 
-#start-game {
+#start-game, .reset-btn {
     padding: 10px;
     border-radius: 50%;
     border: none;
