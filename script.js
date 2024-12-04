@@ -1,6 +1,5 @@
 let humanScore = 0,
-TOPbotScore = 0,
-draw = 0;
+TOPbotScore = 0;
 
 const gameConsole = document.querySelector(".game-console"),
  roundWinner = document.querySelector("#winner"),
@@ -66,7 +65,7 @@ function getComputerChoice() {
         ) {
             humanScore++;
             playerScore.textContent = humanScore;
-            roundWinner.textContent = "You win.";
+            roundWinner.textContent = `You win: TOPbot chooses ${computerChoice}`;
         }
 
         else if (humanChoice === scissorsBtn && computerChoice === `rock` ||
@@ -75,19 +74,18 @@ function getComputerChoice() {
           {
             TOPbotScore++;
             botScore.textContent = TOPbotScore;
-            roundWinner.textContent = "TOPbot wins.";
+            roundWinner.textContent = `TOPbot wins: TOPbot chooses ${computerChoice}`;
         }
         
         else {
-            draw++
-            roundWinner.textContent = "No winner, it is a tie.";
+            roundWinner.textContent = `No winner, it is a tie: TOPbot chooses ${computerChoice}`;
         }
     }
 
-    // code to display end result after 5 rounds and start a new round.
+    // code to display end result after 5 points from the player or the TOPbot  and start a new round.
     let checkSoreToEndGame = function () {
 
-       for (let rounds = 1; rounds <= 10; rounds++) {
+    //    for (let rounds = 1; rounds <= 10; rounds++) {
 
         if (TOPbotScore >= 5 && TOPbotScore > humanScore && draw < TOPbotScore) {
             rockBtn.setAttribute("style", "display: none;");
@@ -109,7 +107,7 @@ function getComputerChoice() {
             resetGame.textContent = "Reset Game"
             btnContainer.appendChild(resetGame);
         }   
-    }
+    // }
 
 }
 
