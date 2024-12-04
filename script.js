@@ -1,7 +1,6 @@
 let humanScore = 0,
-TOPbotScore = 0
-// draw = 0
-/*rounds*/;
+TOPbotScore = 0,
+draw = 0;
 
 const gameConsole = document.querySelector(".game-console"),
  roundWinner = document.querySelector("#winner"),
@@ -80,6 +79,7 @@ function getComputerChoice() {
         }
         
         else {
+            draw++
             roundWinner.textContent = "No winner, it is a tie.";
         }
     }
@@ -87,40 +87,28 @@ function getComputerChoice() {
     // code to display end result after 5 rounds and start a new round.
     let checkSoreToEndGame = function () {
 
-       for ( let rounds = 1; rounds <= 10; rounds++) {
+       for (let rounds = 1; rounds <= 10; rounds++) {
 
-        if (TOPbotScore >= 5 && TOPbotScore > humanScore) {
+        if (TOPbotScore >= 5 && TOPbotScore > humanScore && draw < TOPbotScore) {
             rockBtn.setAttribute("style", "display: none;");
             paperBtn.setAttribute("style", "display: none;");
             scissorsBtn.setAttribute("style", "display: none;");
-            roundWinner.textContent = `TOPbot wins the game!!!
-            Final score:Player: ${humanScore} vs TOPbot: ${TOPbotScore}`
+            roundWinner.textContent = `Game has ended because TOPbot has 5 points before you and\n
+            TOPbot wins the game!!!\n
+            Final score: Player: ${humanScore} vs TOPbot: ${TOPbotScore}`
             resetGame.textContent = "Reset Game";
             btnContainer.appendChild(resetGame);
         }
 
-        else if (humanScore >= 5 && humanScore > TOPbotScore) {
+        else if (humanScore >= 5 && humanScore > TOPbotScore && draw < humanScore) {
             rockBtn.setAttribute("style", "display: none;");
             paperBtn.setAttribute("style", "display: none;");
             scissorsBtn.setAttribute("style", "display: none;");
-            roundWinner.textContent = `You won the game!!!
-            Final score:Player: ${humanScore} vs TOPbot: ${TOPbotScore}`
+            roundWinner.textContent = `Game has ended because You have 5 points before TOPbot and\nYou won the game!!!\n
+            Final score: Player: ${humanScore} vs TOPbot: ${TOPbotScore}`
             resetGame.textContent = "Reset Game"
             btnContainer.appendChild(resetGame);
         }   
-        else if ((TOPbotScore != 0)
-             && (humanScore != 0)
-             && (TOPbotScore === humanScore)
-              && (TOPbotScore < 5)
-               && (humanScore < 5)) {
-            rockBtn.setAttribute("style", "display: none;");
-            paperBtn.setAttribute("style", "display: none;");
-            scissorsBtn.setAttribute("style", "display: none;");
-            roundWinner.textContent = `No winner on this game!!!
-            Final score:Player: ${humanScore} vs TOPbot: ${TOPbotScore}`
-            resetGame.textContent = "Reset Game";
-            btnContainer.appendChild(resetGame);
-        }
     }
 
 }
