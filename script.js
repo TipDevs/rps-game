@@ -9,8 +9,9 @@ const gameConsole = document.querySelector(".game-console"),
  rockBtn = document.createElement("button"),
  scissorsBtn = document.createElement("button"),
  botScore = document.querySelector("#TOPbot-score"),
- playerScore = document.querySelector("#human-score")
-resetGame = document.createElement("button");
+ playerScore = document.querySelector("#human-score"),
+resetGame = document.createElement("button"),
+gameIntro = document.querySelector("#game-intro");
 
 // classlist
 btnContainer.classList.add("button-container");
@@ -28,6 +29,7 @@ function displayChoiceBtn() {
     botScore.textContent = TOPbotScore;
 
     startGameBtn.setAttribute('style', "display: none;");
+    gameIntro.setAttribute("style", "display: none");
     gameConsole.appendChild(btnContainer);
     btnContainer.appendChild(rockBtn);
     btnContainer.appendChild(paperBtn);
@@ -87,7 +89,7 @@ function getComputerChoice() {
 
     //    for (let rounds = 1; rounds <= 10; rounds++) {
 
-        if (TOPbotScore >= 5 && TOPbotScore > humanScore && draw < TOPbotScore) {
+        if (TOPbotScore >= 5 && TOPbotScore > humanScore) {
             rockBtn.setAttribute("style", "display: none;");
             paperBtn.setAttribute("style", "display: none;");
             scissorsBtn.setAttribute("style", "display: none;");
@@ -98,7 +100,7 @@ function getComputerChoice() {
             btnContainer.appendChild(resetGame);
         }
 
-        else if (humanScore >= 5 && humanScore > TOPbotScore && draw < humanScore) {
+        else if (humanScore >= 5 && humanScore > TOPbotScore) {
             rockBtn.setAttribute("style", "display: none;");
             paperBtn.setAttribute("style", "display: none;");
             scissorsBtn.setAttribute("style", "display: none;");
