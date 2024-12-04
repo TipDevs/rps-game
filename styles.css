@@ -45,9 +45,9 @@ body {
     padding: 20px;
 }
 .game-console{
-    padding: 10px;
+    padding: 10px 20px;
     width: 400px;
-    height: 50%;
+    height: 350px;
     border:10px solid #deb88780;
     background-color: #031814d2;
     box-shadow: 10px 10px 5px #03181473;
@@ -55,14 +55,31 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    /* align-items: center; */
     border-radius: 10px;
     @media (max-width: 400px) {
         width: 300px;
         height: 350px;
     }
 }
-.game-console>p {
+.game-console > #game-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#game-intro > #game-rule {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.game-console > #winner {
     align-self: center;
+    font-weight: bold;
+    @media (max-width: 400px) {
+        font-size: 0.7rem;
+    }
 }
 .score-container{
     display: flex;
