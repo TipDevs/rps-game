@@ -1,6 +1,7 @@
 let humanScore = 0,
-TOPbotScore = 0,
-rounds;
+TOPbotScore = 0
+// draw = 0
+/*rounds*/;
 
 const gameConsole = document.querySelector(".game-console"),
  roundWinner = document.querySelector("#winner"),
@@ -67,7 +68,6 @@ function getComputerChoice() {
             humanScore++;
             playerScore.textContent = humanScore;
             roundWinner.textContent = "You win.";
-            // checkSoreToEndGame();
         }
 
         else if (humanChoice === scissorsBtn && computerChoice === `rock` ||
@@ -77,20 +77,19 @@ function getComputerChoice() {
             TOPbotScore++;
             botScore.textContent = TOPbotScore;
             roundWinner.textContent = "TOPbot wins.";
-            // checkSoreToEndGame();
         }
         
         else {
-            roundWinner.textContent = "No winner, it is a tie."
-            // checkSoreToEndGame();
+            roundWinner.textContent = "No winner, it is a tie.";
         }
     }
 
     // code to display end result after 5 rounds and start a new round.
     let checkSoreToEndGame = function () {
 
-       
-        if (TOPbotScore >= 3 && TOPbotScore > humanScore) {
+       for ( let rounds = 1; rounds <= 10; rounds++) {
+
+        if (TOPbotScore >= 5 && TOPbotScore > humanScore) {
             rockBtn.setAttribute("style", "display: none;");
             paperBtn.setAttribute("style", "display: none;");
             scissorsBtn.setAttribute("style", "display: none;");
@@ -100,7 +99,7 @@ function getComputerChoice() {
             btnContainer.appendChild(resetGame);
         }
 
-        else if (humanScore >= 3 && humanScore > TOPbotScore) {
+        else if (humanScore >= 5 && humanScore > TOPbotScore) {
             rockBtn.setAttribute("style", "display: none;");
             paperBtn.setAttribute("style", "display: none;");
             scissorsBtn.setAttribute("style", "display: none;");
@@ -108,9 +107,12 @@ function getComputerChoice() {
             Final score:Player: ${humanScore} vs TOPbot: ${TOPbotScore}`
             resetGame.textContent = "Reset Game"
             btnContainer.appendChild(resetGame);
-        }
-
-        else {
+        }   
+        else if ((TOPbotScore != 0)
+             && (humanScore != 0)
+             && (TOPbotScore === humanScore)
+              && (TOPbotScore < 5)
+               && (humanScore < 5)) {
             rockBtn.setAttribute("style", "display: none;");
             paperBtn.setAttribute("style", "display: none;");
             scissorsBtn.setAttribute("style", "display: none;");
@@ -121,14 +123,20 @@ function getComputerChoice() {
         }
     }
 
-    
-    
-        rockBtn.addEventListener("click", () => {
-            playRound(getComputerChoice(), rockBtn);
-        });
-        paperBtn.addEventListener("click", () => {
-            playRound(getComputerChoice(), paperBtn);
-        });
-        scissorsBtn.addEventListener("click", () => {
-            playRound(getComputerChoice(), scissorsBtn);
-        });
+}
+
+    rockBtn.addEventListener("click", () => {
+        checkSoreToEndGame(playRound
+            (getComputerChoice(), 
+            rockBtn));
+    });
+    paperBtn.addEventListener("click", () => {
+        checkSoreToEndGame(playRound
+            (getComputerChoice(), 
+            paperBtn));
+    });
+    scissorsBtn.addEventListener("click", () => {
+        checkSoreToEndGame(playRound
+            (getComputerChoice(), 
+            scissorsBtn));
+    });
