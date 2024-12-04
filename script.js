@@ -1,6 +1,7 @@
 let humanScore = 0,
 TOPbotScore = 0;
 
+
 const gameConsole = document.querySelector(".game-console"),
  roundWinner = document.querySelector("#winner"),
  startGameBtn = document.querySelector("#start-game"),
@@ -10,7 +11,7 @@ const gameConsole = document.querySelector(".game-console"),
  scissorsBtn = document.createElement("button"),
  botScore = document.querySelector("#TOPbot-score"),
  playerScore = document.querySelector("#human-score"),
-resetGame = document.createElement("button"),
+resetGameBtn = document.createElement("button"),
 gameIntro = document.querySelector("#game-intro");
 
 // classlist
@@ -18,7 +19,7 @@ btnContainer.classList.add("button-container");
 rockBtn.classList.add('choice-btn');
 paperBtn.classList.add('choice-btn');
 scissorsBtn.classList.add("choice-btn");
-resetGame.classList.add("reset-btn");
+resetGameBtn.classList.add("reset-btn");
 
 // function to display choice button for human player
 function displayChoiceBtn() {
@@ -86,9 +87,6 @@ function getComputerChoice() {
 
     // code to display end result after 5 points from the player or the TOPbot  and start a new round.
     let checkSoreToEndGame = function () {
-
-    //    for (let rounds = 1; rounds <= 10; rounds++) {
-
         if (TOPbotScore >= 5 && TOPbotScore > humanScore) {
             rockBtn.setAttribute("style", "display: none;");
             paperBtn.setAttribute("style", "display: none;");
@@ -96,8 +94,9 @@ function getComputerChoice() {
             roundWinner.textContent = `Game has ended because TOPbot has 5 points before you and\n
             TOPbot wins the game!!!\n
             Final score: Player: ${humanScore} vs TOPbot: ${TOPbotScore}`
-            resetGame.textContent = "Reset Game";
-            btnContainer.appendChild(resetGame);
+            resetGameBtn.textContent = "Reset Game";
+            btnContainer.appendChild(resetGameBtn);
+            resetGameBtn.setAttribute("style", "display: inherit");
         }
 
         else if (humanScore >= 5 && humanScore > TOPbotScore) {
@@ -106,13 +105,13 @@ function getComputerChoice() {
             scissorsBtn.setAttribute("style", "display: none;");
             roundWinner.textContent = `Game has ended because You have 5 points before TOPbot and\nYou won the game!!!\n
             Final score: Player: ${humanScore} vs TOPbot: ${TOPbotScore}`
-            resetGame.textContent = "Reset Game"
-            btnContainer.appendChild(resetGame);
+            resetGameBtn.textContent = "Reset Game"
+            btnContainer.appendChild(resetGameBtn);
+            resetGameBtn.setAttribute("style", "display: inherit");
         }   
-    // }
-
 }
 
+// code to trigger the button when player choose
     rockBtn.addEventListener("click", () => {
         checkSoreToEndGame(playRound
             (getComputerChoice(), 
@@ -128,3 +127,27 @@ function getComputerChoice() {
             (getComputerChoice(), 
             scissorsBtn));
     });
+
+    // function that runs when there is a click on the restart button
+    function resetGame() {
+        humanScore = 0;
+        playerScore.textContent = humanScore;
+        TOPbotScore = 0;
+        botScore.textContent = TOPbotScore;
+        roundWinner.textContent = "";
+        gameIntro.setAttribute("style", "display: inherit");
+        startGameBtn.setAttribute("style", "display: inherit");
+        startGameBtn.addEventListener("click", () => {
+            rockBtn.setAttribute("style", "display: inherit;");
+            paperBtn.setAttribute("style", "display: inherit;");
+            scissorsBtn.setAttribute("style", "display: inherit;");
+            displayChoiceBtn();
+            checkSoreToEndGame();
+        }) 
+    }
+
+// code to trigger the reset button to allow the user to start the game all over
+resetGameBtn.addEventListener("click", () => {
+    resetGameBtn.setAttribute("style", "display: none");
+    resetGame();
+})
