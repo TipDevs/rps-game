@@ -104,7 +104,7 @@ body {
     color: #031814d2;
     /* align-self: center;  */
 }
-.choice-btn:hover, #start-game:hover {
+.choice-btn:hover, #start-game:hover, .reset-btn:hover {
 background-color: #031814e4;
 color: #deb887b0;
 font-weight: bold;
