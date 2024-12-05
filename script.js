@@ -141,7 +141,6 @@ function getComputerChoice() {
             rockBtn.setAttribute("style", "display: inherit;");
             paperBtn.setAttribute("style", "display: inherit;");
             scissorsBtn.setAttribute("style", "display: inherit;");
-            displayChoiceBtn();
             checkSoreToEndGame();
         }) 
     }
